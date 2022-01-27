@@ -69,7 +69,10 @@ def main():
         if not line: break
         ct.append(line)
 
-    ct = bytes("".join(ct).encode())
+
+    ct = "".join(ct)
+    ct = base64.b64decode(ct)
+    ct = bytes(ct)
    
     key = b"YELLOW SUBMARINE"
     IV = b'\x00' * 16
